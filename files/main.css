@@ -46,7 +46,7 @@ p,h2,h1{
     z-index : 2;
 }
 
-p{
+p,h4{
     font-size :115%;
     text-align: left;
     margin-left: 300px;
