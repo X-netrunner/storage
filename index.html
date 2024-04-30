@@ -15,10 +15,10 @@
         <table>
             <tr>
                 <th>No.</th>
-                <th>--name--</th>
-                <th>---type---</th>
-                <th>---link---</th>
-                <th>--comment---</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Link</th>
+                <th>Comment</th>
             </tr>
             <tr>
                 <td>1.</td>
@@ -34,10 +34,10 @@
         <table>
             <tr>
                 <th>No.</th>
-                <th>---Name---</th>
-                <th>---Type---</th>
-                <th>---Link---</th>
-                <th>---Comment---</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Link</th>
+                <th>Comment</th>
             </tr>
             <tr>
                 <td>1.</td>
@@ -59,6 +59,41 @@
                 <td>python</td>
                 <td><a href="/storage/files/decrypter.py" download = "" class ="download-btn">decrypter</a></td>
                 <td>basic decrypter</td>
+            </tr>
+        </table><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h2>Downloading a file using powershell</h2><br>
+        <p>First fix variables for easier access : $u , $p</p><br>
+        <p>$u="https://x-netrunner.github.io/storage/files/encrypter.py"</p><br>
+        <p>$p="C:/test.py"</p><br>
+        <p>Now you have 3 ways to download the file :</p><br><br><br>
+        <table>
+            <tr>
+                <th>No.</th>
+                <th>Method</th>
+                <th>Url</th>
+                <th>Destination</th>
+                <th>Comment</th>
+            </tr>
+            <tr>
+                <td>1.</td>
+                <td>Invoke-Webrequest -URI $u -Outfile $p</td>
+                <td>$u</td>
+                <td>$p</td>
+                <td>mosty used </td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>(New-Object System.Net.WebClient).DownloadFile ($u, $p)</td>
+                <td>$u</td>
+                <td>$p</td>
+                <td>If your goal is to download a file, you will need to create a System.Net.WebClient object. When you create this object, you must call the DownloadFile method and provide values for the URL and for the output path.</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>tart-BitsTransfer -Source $u -Destination $p</td>
+                <td>$u</td>
+                <td>$p</td>
+                <td>BITS refers to the Background Intelligent Transfer Service. This service is a part of the Windows operating system, and you will need to have BITS enabled for this technique to work.</td>
             </tr>
         </table>
     </body>
