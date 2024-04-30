@@ -25,7 +25,7 @@ table{
     text-align: center;
     border-collapse: collapse;
     border-spacing: 0;
-    border-radius: 12px 12px 0 0;
+    border-radius: 12px 12px 12px 12px;
     overflow: hidden;
     box-shadow: 0 5px 12px rgba(32,32,32,.3);
 }
