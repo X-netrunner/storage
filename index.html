@@ -163,8 +163,79 @@
                 <td>./extractor.sh [website name ] for example ./extractor.sh https://x-netrunne.github.io/storage/</td>
             </tr>
         </table>
+        <p style ="line-height: 1500%;">&#8205;</p>
+        <h2>Localhost drive</h2>
+        <p>I am not sure on how to make it public but for localhost i am using filecloud</p><br>
+        <h4><em>steps:</em></h4>
+        <table>
+            <tr>
+                <th>No.</th>
+                <th>steps</th>
+                <th>comments</th>
+            </tr>
+            <tr>
+                <td>1.</td>
+                <td>Install wsl of linux[one way to do it other ways are on the website]</td>
+                <td>Wsl was easier to do as its on the same terminal but for the other setps visit <a href ="https://www.filecloud.com">filecloud</a></td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>Install docker by using sudo apt install docker.io docker-compose -y</td>
+                <td>docker is very important as its the tool we will use to locallyhost it ig</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>wget https://patch.codelathe.com/tonidocloud/live/scripts/fc/docker-compose.yml</td>
+                <td>simpluy installs dockers yml file</td>
+            </tr>
+            <tr>
+                <Td>4.</Td>
+                <td>docker-compose up -d filecloud.server filecloud.mongodb</td>
+                <td> this will set up the server this migth take a while </td>
+            </tr>
+            <tr>
+                <td>5.</td>
+                <td>type in https://[ip address]/install || then https://[ip address]/admin</td>
+                <td>the first link will let you see if everything is working fine and the second link is to the cloud as admin to set it up[user:admin password:password]</td>
+            </tr>
+            <tr>
+                <td>6.</td>
+                <td>head over to the website <a href ="https://www.filecloud.com">filecloud</a> go to installation of docker and get the lisence txt file</td>
+                <td>this will let you use the cloud locally</td>
+            </tr>
+        </table>
+        <p style ="line-height: 2500%;">&#8205;</p>
+        <p>thats it we are done!! if you want to know more about this head over to network chucks vid</p>
+        <h4 style ="line-height: 400%;">Additional steps if you want to </h4>
+        <table>
+            <tr>
+                <th>No.</th>
+                <th>Steps</th>
+                <th>comment</th>
+            </tr>
+            <tr>
+                <td>1.</td>
+                <td>sudo docker pull filecloud/fileclouddocker:23.232.1</td>
+                <td>pulls the docker image ,this is around 1gb</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>sudo docker run --privileged -d -p 443:443 -p 80:80 -v fcdata:/opt/fileclouddata -v dbdata:/var/lib/mongodb -v solrdata:/opt/solrfcdata/var/solr -v htmldata:/var/www/html --name [yourcontainername] [current_image_name:tag] /lib/systemd/systemd</td>
+                <td>this allows you the access to the website image is fileclould/fileclouddocker, this step might take you a while </td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>http://[hostip]/ui/admin/index.html</td>
+                <td>head over to the link same password and username</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>in the website go to the Settings > Storage > My Files and set Storage Path to /opt/fileclouddata.</td>
+                <td>if you are intreseted in the preview and all go to <a href = "https://www.filecloud.com/supportdocs/fcdoc/latest/server/filecloud-administrator-guide/installing-filecloud-server/installation/filecloud-docker-installation">filecloud docker doc</a></td>
+            </tr>
+        </table>
 
-        <p style ="line-height: 2000%;">&#8205;</p>
+        <p style ="line-height: 3000%;">&#8205;</p>
         <div class = "wrapper"><script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
         <div class="elfsight-app-d82d2423-5c88-4c6b-a63e-24c839109a0d" data-elfsight-app-lazy></div></div>
     </body>
