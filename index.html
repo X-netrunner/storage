@@ -35,7 +35,7 @@
         <p style ="line-height: 600%;">&#8205;</p>
         <h2>backup files</h2><br><br>
         <p>Important codes/files to finish in the future</p>
-        <p>I have tried the encrypted codes only in kali Linux for now so I am not sure if they would work as intended in other operating systems</p></p><br><br>
+        <p>I have tried the encrypted codes only in kali Linux for now so I am not sure if they would work as intended in other os</p></p><br><br>
         <table>
             <tr>
                 <th>No.</th>
@@ -164,6 +164,37 @@
             </tr>
         </table>
         <p style ="line-height: 1500%;">&#8205;</p>
+        <h2>Installing wsl on windows 11 or higher</h2>
+        <p>This is actually very simple</p>
+        <h4><em>steps:</em></h4>
+        <table>
+            <tr>
+                <th>No.</th>
+                <th>steps</th>
+                <th>comments</th>
+            </tr>
+            <tr>
+                <td>1.</td>
+                <td>open powershell |wsl --install</td>
+                <td>You will only need ubuntu for now if you want any other distro just download them from the store</td>
+            </tr>
+            <Tr>
+                <Td>2.</Td>
+                <td>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</td>
+                <td>enabling wsl on windows</td>
+            </Tr>
+            <Tr>
+                <td>3.</td>
+                <td>wsl --set-default-version 2</td>
+                <td>there are 2 versions wsl1 and wsl2 -- we are setting wsl2 as default here</td>
+            </Tr>
+            <tr>
+                <td>4.</td>
+                <Td>wsl --list --verbose | wsl --set-version [distribution name=""] [versionnumber][/versionnumber][/distribution]</Td>
+                <td>It should by default install ubuntu but if it doesn't use these commands or go to store and download ubuntu</td>
+            </tr>
+        </table>
+        <p style ="line-height: 1700%;">&#8205;</p>
         <h2>Localhost drive</h2>
         <p>I am not sure how to make it public but for localhost, I am using filecloud</p><br>
         <h4><em>steps:</em></h4>
@@ -235,9 +266,115 @@
             </tr>
         </table>
         <p style ="line-height: 1900%;">&#8205;</p>
-        <p>Once installed you can run this command to start the website again  <b><em>sudo docker-compose up -d filecloud.server filecloud.mongodb</b><em></em></p><br>
+        <p>To start back the website again  <b><em>sudo docker-compose up -d filecloud.server filecloud.mongodb</b></em></p><br>
         <p>Then use <b><em>sudo docker ps</em></b> to check if its running and got to the website</p>
-
+        <h2 style="line-height: 400%">Personal Ai on localhost</h2>
+        <p>installation can be time taking but it would be quick if you have a fast wifi</p>
+        <h4><em>steps:</em></h4>
+        <table>
+            <tr>
+                <th>No.</th>
+                <th>steps</th>
+                <th>comments</th>
+            </tr>
+            <tr>
+                <Td>1.</Td>
+                <td>curl -fsSL https://ollama.com/install.sh | sh</td>
+                <td>This is to install ollama which is a dictionary for local ai</td>
+            </tr>
+            <tr>
+                <Td>2.</Td>
+                <td>ollama pull llama2</td>
+                <td>This pulls llama2 model of ai ,there are so many models in the website <a href = "https://ollama.com">ollama</a></td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td># Add Docker's official GPG key:
+                    sudo apt-get update
+                    sudo apt-get install ca-certificates curl
+                    sudo install -m 0755 -d /etc/apt/keyrings
+                    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+                    sudo chmod a+r /etc/apt/keyrings/docker.asc
+                    
+                    # Add the repository to Apt sources:
+                    echo \
+                    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+                    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+                    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+                    sudo apt-get update</td>
+                <td>Paste the whole code to install docker for webui</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>docker run -d --network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 --name open-webui --restart always ghcr.io/open-webui/open-webui:main</td>
+                <td>this will run the webUI</td>
+            </tr>
+            <tr>
+                <td>5.</td>
+                <td>#Install Pyenv prereqssudo apt install -y make build-essential libssl-dev zlib1g-dev \
+                    libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
+                    libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev git</td>
+                <td>This will install pyenv which can swtich between python versions</td>
+            </tr>
+            <tr>
+                <td>5.</td>
+                <td>curl https://pyenv.run | bash   then use source .bash</td>
+                <td>After this you will be prompted to run a 3 liner , which starts from echo ig[scroll down if it doesn't]</td>
+            </tr>
+            <tr>
+                <Td>6.</Td>
+                <td>pyenv install 3.10 && then run pyenv global 3.10</td>
+                <td>pyenv installation</td>
+            </tr>
+            <tr>
+                <Td>8.</Td>
+                <td>cd || mkdir stablediff || cd stablediff</td>
+                <td> to store the files for AUTOMATIC1111</td>
+            </tr>
+            <tr>
+                <td>7.</td>
+                <Td>wget -q https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh</Td>
+                <td>to install stable diffusion which can generate images</td>
+            </tr>
+            <tr>
+                <td>8.</td>
+                <td>chmod +x webui.sh || ./webui.sh --listen --api</td>
+                <td>STABLE DIFFUSION ONLY WORKS IF YOU HAVE ATLEAST RAM OF 12GM OR YOU WILL GET ERROR 137</td>
+            </tr>
+        </table>
+        <p style="line-height: 5500%;">&#8205;</p>
+        <h4>Debug</h4>
+        <p>if its regarding pyenv then make sure you don't have pyenv installed on windows and unsintall it from ubuntu as well by using</p><br>
+        <table>
+            <tr>
+                <th>command</th>
+            </tr>
+            <tr>
+                <td>rm -rf .pyenv</td>
+            </tr>
+        </table>
+        <p style="line-height: 600%;">&#8205;</p>
+        <p>then try to install it again if it still doesn't work open ./bashrc file and add these lines of codes at the end</p><br>
+        <table>
+            <tr>
+              <th>command</th>
+            </tr>
+            <tr>
+                <td>export PYENV_ROOT="$HOME/.pyenv"
+                    BIN_OLD="/mnt/c/Users/[username]/.pyenv/pyenv-win/bin"
+                    BIN_NEW="$PYENV_ROOT/bin"
+                    SHIMS_OLD="/mnt/c/Users/[username]/.pyenv/pyenv-win/shims"
+                    SHIMS_NEW="$PYENV_ROOT/shims"
+                    export PATH=`echo $PATH | sed "s@$BIN_OLD@$BIN_NEW@" | sed "s@$SHIMS_OLD@$SHIMS_NEW@"`
+                    eval "$(pyenv init -)"
+                </td>
+            </tr>
+        </table>
+        <p style = " line-height: 200%;">&#8205;</p>
+        <p>now try to reinstall pyenv and it should be working and then paste the command it tells you to paste </p><br>
+        <p>now to run the ai on your browser type in localhost:8080 </p><br>
+        <p>if you installed stable diffusion then go to the settings in the webui settings>images>then paste https://127.0.0.1:7860</p><br>
+        <p> for more info check networkchucks vid about this</p>
 
         
         <p style ="line-height: 1000%;">&#8205;</p>
